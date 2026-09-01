@@ -264,14 +264,14 @@ export default function Home() {
 
       <section className="c-video c-shell" id="audiovisual">
         <div className="c-section-intro c-section-intro-split">
-          <div><p className="c-kicker">05 / Ver y escuchar</p><h2>Laboratorios, pódcast y obras en proceso.</h2></div>
+          <div><p className="c-kicker">05 / Ver y escuchar</p><h2>Teatro de Sombras</h2></div>
           <p className="c-section-side">Una videoteca para reunir materiales de análisis y documentar los productos audiovisuales del semillero.</p>
         </div>
         <div className="c-video-grid">
           <article className="c-video-feature">
             <div className="c-video-frame">
               <iframe
-                src="https://www.youtube-nocookie.com/embed/LMmdDmiJY0g"
+                src="https://www.youtube-nocookie.com/embed/eFNWbQaGozg"
                 title="Material de análisis para el Laboratorio Escuchar tres veces"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
