@@ -203,7 +203,7 @@ export default function Home() {
             <p>Una pregunta común articula el análisis cultural y territorial con los diálogos y tensiones entre tradición, ciencia, medios digitales y experiencias contemporáneas.</p>
             <div className="c-focus-stats">
               <div><strong>5</strong><small>ponencias colectivas</small></div>
-              <div><strong>XIII</strong><small>Coloquio Internacional en Lenguaje y Cultura</small></div>
+               
             </div>
           </aside>
         </div>
@@ -279,10 +279,10 @@ export default function Home() {
               />
             </div>
             <div className="c-video-copy">
-              <span>Material de análisis</span>
-              <h3>Laboratorio «Escuchar tres veces»</h3>
-              <p>Una batalla de freestyle permite observar cómo una expresión oral integra palabra, cuerpo, ritmo, música, espacio, audiencia y performance.</p>
-              <a href="https://www.youtube.com/watch?v=LMmdDmiJY0g" target="_blank" rel="noreferrer">Ver en YouTube <Arrow /></a>
+              <span>Dibulgación</span>
+              <h3>Laboratorio «Relato en Punto»</h3>
+              <p>Relato en punto, un podcast para la divulgación de las investigaciones del Semillero</p>
+              <a href="https://www.youtube.com/watch?v=eFNWbQaGozg" target="_blank" rel="noreferrer">Ver en YouTube <Arrow /></a>
             </div>
           </article>
           <div className="c-video-upcoming">
