@@ -143,7 +143,7 @@ export default function Home() {
       <section className="c-hero" id="inicio">
         <div className="c-hero-copy">
           <p className="c-kicker">Grupo de Investigación Litoral · UPTC</p>
-          <h1>Voces que cuentan.<br /><span>Territorios</span> que responden.</h1>
+          <h1>Semillero Consonante<br /><span>UPTC</span> .</h1>
           <p className="c-hero-lead">
             Investigamos la literatura oral como memoria viva, práctica cultural
             y forma de crear conocimiento con los territorios.
@@ -279,7 +279,7 @@ export default function Home() {
               />
             </div>
             <div className="c-video-copy">
-              <span>Dibulgación</span>
+              <span>Cambiar</span>
               <h3>Laboratorio «Relato en Punto»</h3>
               <p>Relato en punto, un podcast para la divulgación de las investigaciones del Semillero</p>
               <a href="https://www.youtube.com/watch?v=eFNWbQaGozg" target="_blank" rel="noreferrer">Ver en YouTube <Arrow /></a>
