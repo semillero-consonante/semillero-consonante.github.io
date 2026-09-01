@@ -1,0 +1,48 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null && request.auth.token.email != null;
+    }
+
+    function memberPath() {
+      return /databases/$(database)/documents/integrantes/$(request.auth.token.email);
+    }
+
+    function isMember() {
+      return signedIn() && exists(memberPath());
+    }
+
+    function memberRole() {
+      return get(memberPath()).data.role;
+    }
+
+    function isEditor() {
+      return isMember() && memberRole() in ['coordinacion', 'editor'];
+    }
+
+    function isCoordinator() {
+      return isMember() && memberRole() == 'coordinacion';
+    }
+
+    match /integrantes/{email} {
+      allow read: if signedIn() && (request.auth.token.email == email || isCoordinator());
+      allow create, update, delete: if isCoordinator();
+    }
+
+    match /{collectionName}/{documentId} {
+      allow read: if collectionName in ['programacion', 'lecturas', 'tareas', 'anuncios'] && isMember();
+      allow create, update, delete: if collectionName in ['programacion', 'lecturas', 'tareas', 'anuncios'] && isEditor();
+    }
+
+    match /actividades_publicas/{documentId} {
+      allow read: if true;
+      allow create, update, delete: if isEditor();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
