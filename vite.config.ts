@@ -2,7 +2,6 @@ import vinext from "vinext";
 import { defineConfig } from "vite";
 import hostingConfig from "./.openai/hosting.json";
 import { sites } from "./build/sites-vite-plugin";
-import nextConfig from "./next.config";
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   "00000000-0000-4000-8000-000000000000";
@@ -17,9 +16,8 @@ const localBindingConfig = {
   compatibility_flags: ["nodejs_compat"],
 
   assets: {
-    binding: "ASSETS",
-    not_found_handling: "none",
-  },
+  binding: "ASSETS",
+},
 
   images: {
     binding: "IMAGES",
@@ -63,7 +61,7 @@ export default defineConfig(async () => {
         : {}),
     },
     plugins: [
-      vinext({ nextConfig }),
+      vinext(),
       sites(),
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
