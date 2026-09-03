@@ -434,9 +434,10 @@ function EditorPanel({ demo, onSaved, currentUser }: { demo: boolean; onSaved: (
 
   async function save(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const firestore = db;
-    if (!firestore || !canSave) return;
-    const form = new FormData(event.currentTarget);
+const formElement = event.currentTarget;
+const firestore = db;
+if (!firestore || !canSave) return;
+const form = new FormData(formElement);
     setSaving(true);
     setMessage("");
     try {
