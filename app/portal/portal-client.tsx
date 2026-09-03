@@ -432,14 +432,19 @@ function EditorPanel({ demo, onSaved, currentUser }: { demo: boolean; onSaved: (
   const [message, setMessage] = useState("");
   const canSave = useMemo(() => !demo && Boolean(db && currentUser), [demo, currentUser]);
 
-  async function save(event: FormEvent<HTMLFormElement>) {
+    async function save(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-const formElement = event.currentTarget;
-const firestore = db;
-if (!firestore || !canSave) return;
-const form = new FormData(formElement);
+
+    const formElement = event.currentTarget;
+    const firestore = db;
+
+    if (!firestore || !canSave) return;
+
+    const form = new FormData(formElement);
+
     setSaving(true);
     setMessage("");
+
     try {
       await addDoc(collection(firestore, type), {
         title: String(form.get("title") ?? ""),
@@ -451,11 +456,22 @@ const form = new FormData(formElement);
         createdAt: serverTimestamp(),
         createdBy: currentUser?.email ?? "",
       });
-      event.currentTarget.reset();
+    } catch {
+      setMessage(
+        "No fue posible guardar el contenido. Verifica tu conexión e inténtalo nuevamente.",
+      );
+      setSaving(false);
+      return;
+    }
+
+    try {
+      formElement.reset();
       await onSaved();
       setMessage("Contenido publicado correctamente.");
     } catch {
-      setMessage("No fue posible publicar. Verifica tu rol y las reglas de acceso.");
+      setMessage(
+        "El contenido se publicó, pero la lista no se actualizó. Recarga la página para verlo.",
+      );
     } finally {
       setSaving(false);
     }
