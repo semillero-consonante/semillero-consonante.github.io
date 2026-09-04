@@ -286,7 +286,11 @@ export default function PortalClient() {
           <span className={`status-pill ${demo ? "demo-pill" : ""}`}>{demo ? "Vista de diseño" : profile.role}</span>
         </div>
         <div className="portal-heading">
-          <div><h1>{sectionLabels[active].title}</h1><p>{sectionLabels[active].subtitle}</p></div>
+          <div><h1>
+  {active === "inicio"
+    ? `Hola, ${profile.name.split(" ")[0]}.`
+    : sectionLabels[active].title}
+</h1><p>{sectionLabels[active].subtitle}</p></div>
         </div>
         <div className="section-content">
           {active === "inicio" && <HomePanel content={content} onNavigate={setActive} />}
