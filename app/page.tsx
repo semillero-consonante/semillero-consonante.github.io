@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import MediaShowcase from "./components/media-showcase";
+import MediaShowcase, { ProcessVideos } from "./components/media-showcase";
 
 const workAreas = [
   {
@@ -256,7 +256,7 @@ export default function Home() {
         <div className="c-shell">
           <div className="c-section-intro c-section-intro-split">
             <div><p className="c-kicker">04 / Memoria visual</p><h2>El trabajo también se recuerda en imágenes.</h2></div>
-            <p className="c-section-side">Filtra y selecciona los momentos. La estructura queda preparada para incorporar fotografías reales del semillero con sus datos y permisos; no utilizamos imágenes genéricas para simular el trabajo de campo.</p>
+            <p className="c-section-side">Talleres, creación, ponencias y recorridos: una muestra de las personas y los procesos que dan vida al semillero. Filtra las actividades y abre las imágenes para verlas de cerca.</p>
           </div>
           <MediaShowcase />
         </div>
@@ -264,39 +264,10 @@ export default function Home() {
 
       <section className="c-video c-shell" id="audiovisual">
         <div className="c-section-intro c-section-intro-split">
-          <div><p className="c-kicker">05 / Ver y escuchar</p><h2>Teatro de Sombras</h2></div>
-          <p className="c-section-side">Una videoteca para reunir materiales de análisis y documentar los productos audiovisuales del semillero.</p>
+          <div><p className="c-kicker">05 / Ver y escuchar</p><h2>Los rostros y los sonidos de la creación.</h2></div>
+          <p className="c-section-side">Dos registros para acercarse a los gestos, las voces y las exploraciones del semillero. Tú decides cuándo reproducirlos.</p>
         </div>
-        <div className="c-video-grid">
-          <article className="c-video-feature">
-            <div className="c-video-frame">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/eFNWbQaGozg"
-                title="Material de análisis para el Laboratorio Escuchar tres veces"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-            <div className="c-video-copy">
-              <span>Cambiar</span>
-              <h3>Laboratorio «Relato en Punto»</h3>
-              <p>Relato en punto, un podcast para la divulgación de las investigaciones del Semillero</p>
-              <a href="https://www.youtube.com/watch?v=eFNWbQaGozg" target="_blank" rel="noreferrer">Ver en YouTube <Arrow /></a>
-            </div>
-          </article>
-          <div className="c-video-upcoming">
-            <article>
-              <span>En desarrollo</span><h3>Teatro de sombras</h3><p>Registro del proceso creativo alrededor del mito y la leyenda.</p><i>01</i>
-            </article>
-            <article>
-              <span>Ya disponible</span><h3>Relato en Punto</h3><p>Cinco emisiones para escuchar la literatura oral desde Boyacá.</p><i>02</i>
-            </article>
-            <article>
-              <span>Archivo futuro</span><h3>Composiciones musicales</h3><p>Piezas que exploran motivos, atmósferas y transformaciones de los relatos.</p><i>03</i>
-            </article>
-          </div>
-        </div>
+        <ProcessVideos />
       </section>
 
       <section className="c-podcast" id="podcast">
